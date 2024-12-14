@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REstCIPES</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <h1>REstCIPES</h1>
+            <p class="description">Explore food recipes when you have time and you are resting</p>
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </div>
+    </header>
+
+    <nav class="centered-nav">
+        <ul>
+            <li><button class="active" onclick="loadRecipes('breakfast')">Breakfast</button></li>
+            <li><button onclick="loadRecipes('lunch')">Lunch</button></li>
+            <li><button onclick="loadRecipes('dinner')">Dinner</button></li>
+            <li><button onclick="loadRecipes('midnight snacks')">Midnight Snacks</button></li>
+        </ul>
+    </nav>
+
+    <!-- Menu Sidebar -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-content">
+            <h2>Font Size</h2>
+            <div class="font-size-container">
+                <label for="font-size">Font Size: </label>
+                <select id="font-size" onchange="adjustFontSize()">
+                    <option value="14">Small</option>
+                    <option value="16">Medium</option>
+                    <option value="18">Large</option>
+                    <option value="20">Extra Large</option>
+                </select>
+            </div>
+            <div class="history-container">
+                <h3>Recently Viewed Recipes</h3>
+                <ul id="recentlyViewedList"></ul>
+            </div>
+            <div class="menu-buttons">
+                <button onclick="clearRecentlyViewed()">Clear Recently Viewed</button>
+                <button onclick="closeMenu()">Close Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="centered-container">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search Recipes...">
+                <button onclick="searchRecipes()">Search</button>
+            </div>
+        </div>
+
+        <div id="recipe-container" class="recipe-list"></div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
